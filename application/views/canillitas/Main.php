@@ -12,6 +12,7 @@
    <link rel="stylesheet" href="<?=base_url()?>public/template/css/style.css">
    <link rel="stylesheet" href="<?=base_url()?>public/template/css/responsive.css">
    <link rel="stylesheet" href="<?=base_url()?>public/template/js/table/datatable/datatables.min.css" type="text/css">
+   <!--<link rel="stylesheet" href="<?=base_url()?>public/template/js/table/datatable/buttons.datatables.min.css" type="text/css">-->
    <!--<link rel="stylesheet" href="<?=base_url()?>public/css/datatables.min.css" type="text/css"> 
    <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
    <link href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
@@ -88,7 +89,15 @@
    <!--<script src="<?=base_url()?>public/template/js/chart.min.js"></script>
    <script src="<?=base_url()?>public/template/js/datatables.min.js"></script>-->
    <script src="<?=base_url()?>public/template/js/jquery.validate.min.js"></script>
+   
+   <!-- JS DataTable -->
    <script src="<?=base_url()?>public/template/js/table/datatable/datatables.min.js"></script>
+   <!--<script src="<?=base_url()?>public/template/js/table/datatable/dataTables.buttons.min.js"></script>-->
+   <script src="<?=base_url()?>public/template/js/table/datatable/jszip.min.js"></script>
+   <script src="<?=base_url()?>public/template/js/table/datatable/pdfmake.min.js"></script>
+   <script src="<?=base_url()?>public/template/js/table/datatable/vfs_fonts.js"></script>
+   <!--script src="<?=base_url()?>public/template/js/table/datatable/buttons.html5.min.js"></script>-->
+   <!--<script src="<?=base_url()?>public/template/js/table/datatable/buttons.print.min.js"></script>-->
    <script src="<?=base_url()?>public/template/js/table/table.js"></script>
 	<script src="<?=base_url()?>public/template/js/canillitas/main.js"></script>
 	<script>

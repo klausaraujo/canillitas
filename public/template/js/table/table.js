@@ -1,27 +1,41 @@
 function tablePersonalized(table){
 	
-	var cols = [];
-	var titles = [];
-	
+	let cols = '[';
+	let titles = '[';
+
 	//for (var i = 0; i < lista.length; i++){
 	if(lista.length > 0){
-		var obj = lista[0]; var j = 0;
-		for (var key in obj){
-			var value = obj[key];
-			if(j < 7){
-				cols.push({data:key});
-				titles.push({title:key.toUpperCase(),targets:j});
-			}
-			j++;
-		}
-	}else
-		console.log(lista);
-	//}
+		let j = 0; cols = '[';
+		lista.forEach(function(col){
+			for(const [key, value] of Object.entries(col)){
+				if(j < 7){
+					cols += '{"data":"'+key+'"}';
+					titles += '{"title":"'+key.toUpperCase()+'","targets":"'+j+'"}';
+					/*cols.push({data:key});
+					titles.push({title:key.toUpperCase(),targets:j});*/
+				}
+				j++;
+			}			
+		});
+		cols = JSON.parse(cols += ']'); titles = JSON.parse(titles += ']');
+		
+	}else{
+		cols = JSON.parse(cols += '{"data":"dni"},{"data":"apellidos"},{"data":"nombres"},{"data":"fecnac"},{"data":"sexo"},{"data":"domicilio"},{"data":"correo"}]');
+		titles = (JSON.parse(titles += '{"title":"DNI","targets": 0},{"title":"APELLIDOS","targets": 1},{"title":"NOMBRES","targets": 2},{"title":"FECHA NAC","targets": 3},'+
+				'{"title":"GENERO","targets": 4},{"title":"DIRECCION","targets": 5},{"title":"CORREO","targets": 6}]'));
+	}
+	
+	//String JSON con su identificador
+	//json = {"data":[{"name":"Tiger Nikon","position":"system"}]};
+	//String JSON sin su identificador pero esperando mas datos [0],[1]...
+	//json = [{"name":"Tiger Nikon","position":"system"}];
+	//String JSON sin su identificador y solo una fila de datos
+	//json = {"name":"Tiger Nikon","position":"system"};
 	/*console.log(cols);
 	console.log(titles);*/
 	
 	var columnas = [
-				{data:'dni'},{data:'apellidos'},{data:'nombres'},{data:'fecnac'},{data:'domicilio'},{data:'correo'},{data:'sexo'},
+				{data:'dni'},{data:'apellidos'},{data:'nombres'},{data:'fecnac'},{data:'sexo'},{data:'domicilio'},{data:'correo'},
 				/*{
 					data: null,
 					render: function (data, type, row, meta) {
@@ -30,12 +44,6 @@ function tablePersonalized(table){
 					}
 				}*/
 			];
-	var titulos = [{title:'DNI',targets: 0},{title:'APELLIDOS',targets: 1},{title:'NOMBRES',targets: 2},{title:'FECHA NAC',targets: 3},{title:'DIRECCION',targets: 4},
-				{title:'CORREO',targets: 5},{title:'GENERO',targets: 6}];
-	/*var datos = [{'ID': '0','DNI': '123456','Apellidos': 'paredes','Nombres': 'deight','Fec Nac': 'anio','Genero': 'Masculino','Estado Civil': 'Soltero'},
-				{'ID': '1','DNI': '123456','Apellidos': 'paredes','Nombres': 'deight','Fec Nac': '32788','Genero': 'Masculino','Estado Civil': 'Soltero'},
-				{'ID': '2','DNI': '123456','Apellidos': 'paredes','Nombres': 'deight','Fec Nac': '32788','Genero': 'Masculino','Estado Civil': 'Soltero'},
-				{'ID': '3','DNI': '123456','Apellidos': 'paredes','Nombres': 'deight','Fec Nac': '32788','Genero': 'Masculino','Estado Civil': 'Soltero'}];*/
 
 
 	const dataTable = $(table).DataTable({
@@ -53,8 +61,12 @@ function tablePersonalized(table){
 		//dom: 'Bfrt<"col-sm-12 inline"i> <"col-sm-12 inline"p>',
 		lengthMenu: [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, 'Todas']],
 		
-		"columns": lista.length > 0 ? cols : columnas,
-		"columnDefs": lista.length > 0 ? titles : titulos,
+		"columns": cols,//lista.length > 0 ? cols : columnas,
+		"columnDefs": titles,//lista.length > 0 ? titles : titulos,
+		"dom": '<"row"<"col-sm-12 mb-2"B><"col-sm-6 float-left"l><"col-sm-6 float-right"f>>rtip',
+		"buttons": [
+			'copy','csv','excel','pdf','print'
+		]
 		/*"buttons": {
 			dom: {
 			  container: {
