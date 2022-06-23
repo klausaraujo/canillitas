@@ -30,6 +30,13 @@
 		#message, #cargando{text-align:center}
 		.succes{color:#008F39;font-size:1.1rem}
 		.warn{color:#FF0000;font-size:1.1rem}
+		table.dataTable td {
+		  font-size: 0.8rem;
+		}
+		.actionEdit{background:green}
+		.actionCargas{}
+		.actionEstud{}
+		.actionReport{background:red}
 	  </style>
 </head>
 <body>
@@ -57,7 +64,8 @@
                         <br>
                         <div class="table-responsive">
                            <table id="tablaCanillita" class="table table-striped dt-responsive w-100 table-bordered display nowrap table-hover mb-0" style="width:100%">
-                           </table>
+								
+				           </table>
                         </div>
 
                      </div>
@@ -109,9 +117,9 @@
       const canHistory = "1";
       const URI = "<?=base_url()?>";
 	  const lista = JSON.parse('<?=$listarCanillita?>');
-	  const table = tablePersonalized('#tablaCanillita');
+	  const table = tablePersonalized('#tablaCanillita',lista);
 	  //tablePersonalized(table);
-	  canillitas(URI,table);
+	  canillitas(URI,table,'canillita');
       /*const lista = <?= $lista ?>;*/
    </script>
    <script>

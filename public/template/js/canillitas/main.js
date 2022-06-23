@@ -180,28 +180,28 @@ function canillitas(URI,table) {
 	});
 	
 	function loadData() {
-    $.ajax({
-      type: 'POST',
-      url: URI + 'canillitas/main/listar',
-      data: {},
-      dataType: 'json',
-      success: function (response) {
-        const { data: { listarCanillita } } = response;
-        table.clear();
-        table.rows.add(listarCanillita).draw();
-        
-        /*$(".actionEdit").on('click', function (event) {
-          var valor ="", i = 0;
-          $(this).parents("tr").find("td").each(function(){
-            if(i == 1)
-              valor = $(this).html();
-            i++;
-          });
-    
-          buscar(valor);
-          showModal(event, 'Editar Usuario');
-        });*/
-      }
-    });
-  }
+		$.ajax({
+		  type: 'POST',
+		  url: URI + 'canillitas/main/listar',
+		  data: {},
+		  dataType: 'json',
+		  success: function (response) {
+			const { data: { listarCanillita } } = response;
+			table.clear();
+			table.rows.add(listarCanillita).draw();
+			
+			/*$(".actionEdit").on('click', function (event) {
+			  var valor ="", i = 0;
+			  $(this).parents("tr").find("td").each(function(){
+				if(i == 1)
+				  valor = $(this).html();
+				i++;
+			  });
+		
+			  buscar(valor);
+			  showModal(event, 'Editar Usuario');
+			});*/
+		  }
+		});
+	}
 }
