@@ -32,12 +32,12 @@ class Canillita_model extends CI_Model
     public function setEstado_civil($data){ $this->estado_civil = $this->db->escape_str($data); }
     public function setCondicion($data){ $this->condicion = $this->db->escape_str($data); }
     public function setFoto($data){ $this->foto = $this->db->escape_str($data); }
-    public function setDomicilio($data){ $this->domicilio = $this->db->escape_str($data); }
+    public function setDomicilio($data){ $this->domicilio = str_replace(array('#',"'", ";","\\",'"','\/'), '', $this->db->escape_str($data)); }
     #public function setUbigeo_domicilio($data){ $this->ubigeo_domicilio = $this->db->escape_str($data); }
     public function setTelefono_01($data){ $this->telefono_01 = $this->db->escape_str($data); }
     public function setTelefono_02($data){ $this->telefono_02 = $this->db->escape_str($data); }
     public function setEmail($data){ $this->email = $this->db->escape_str($data); }
-	public function setObs($data){ $this->obs = $this->db->escape_str($data); }
+	public function setObs($data){ $this->obs = str_replace(array('#',"'", ";","\\",'"','\/'), '', $this->db->escape_str($data)); }
     public function setUsuario_registro($data){ $this->usuario_registro = $this->db->escape_str($data); }
     public function setFecha_registro($data){ $this->fecha_registro = $this->db->escape_str($data); }
     public function setUsuario_actualizacion($data){ $this->usuario_actualizacion = $this->db->escape_str($data); }
@@ -77,11 +77,27 @@ class Canillita_model extends CI_Model
         }
     }
 	
-	public function existe_canillita(){
+	public function existe_canillita()
+	{
         $this->db->select("1");
         $this->db->from("canillita");
         $this->db->where("dni",$this->documento_numero);
         $rs =  $this->db->get();
         return $rs->num_rows();
+    }
+	
+	public function agregarFoto()
+    {
+        $this->db->db_debug = FALSE;
+        
+        $this->db->set("foto", $this->foto, TRUE);
+        $this->db->where("idcanillita", $this->id);
+        $error = array();
+        if ($this->db->update('canillita'))
+            return 1;
+            else {
+                $error = $this->db->error();
+                return $error["code"];
+            }
     }
 }

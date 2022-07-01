@@ -4,7 +4,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Caja De Protección Y Asistencia Social Ley 10674</title>
-      <link rel="shortcut icon" type="image/png" href="<?=base_url()?>public/images/favicon.jpg"/>
+      <link rel="shortcut icon" type="image/png" href="<?=base_url()?>public/template/images/favicon.jpg"/>
+	  <link rel="icon" href="<?=base_url()?>public/template/images/favicon.jpg" type="image/x-icon">
       <link rel="stylesheet" href="<?=base_url()?>public/template/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?=base_url()?>public/template/css/typography.css">
       <link rel="stylesheet" href="<?=base_url()?>public/template/css/style.css">
@@ -20,7 +21,7 @@
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-3" href="#"><img style="width:700px; height:250px" src="<?php echo base_url('public/images/logo-white.png'); ?>" alt="Minsa" class="img-fluid"  ></a>
+                            <a class="sign-in-logo mb-3" href="#"><img style="width:700px; height:250px" src="<?php echo base_url('public/template/images/logo-white.png'); ?>" alt="Minsa" class="img-fluid"  ></a>
                             <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
                                 <div class="item">
                                     <img src="<?=base_url()?>public/template/images/login/1.jpg" class="img-fluid mb-4" alt="logo">
@@ -95,7 +96,7 @@
 							<br/>
 							<br/><br/>
 							<div class="media" style="width: 100%;">
-								<img class="align-self-end  " src="<?=base_url()?>public/images/logo.jpg" 
+								<img class="align-self-end  " src="<?=base_url()?>public/template/images/logo.jpg" 
 								style="width: auto;height: 70px;margin: 0 auto;" />
 							</div>
  

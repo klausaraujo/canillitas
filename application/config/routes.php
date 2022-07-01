@@ -53,6 +53,7 @@ $route['default_controller'] = 'login';
 $route['login'] = 'login/login';
 $route['doLogin'] = 'login/doLogin';
 $route['curl'] = 'main/curl';
+$route['formAjax'] = 'main/formAjax';
 
 #Formularios de Registro y edicion
 $route['canillitas'] = 'canillitas/main/canillitas';

@@ -26,14 +26,11 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<?if(!$this->uri->segment(1)=="")
-					echo $formNew;
-				?>
+				
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-success" id="btnNuevo">Nuevo</button>
-				<button type="submit" class="btn btn-primary" id="btnEnviar">Guardar registro</button>
-				<button class="btn btn-primary" id="btnCancelar" name="btnCancelar" role="button" data-dismiss="modal" aria-pressed="true">Cancelar</button>
+				<button type="submit" class="btn btn-primary" id="btnEditar">Guardar registro</button>
+				<button class="btn btn-primary" id="btnCancelar" name="btnCancel" role="button" data-dismiss="modal" aria-pressed="true">Cancelar</button>
 			</div>
 			<div class="col-md-12 text-center cargando"></div>
 		</div>

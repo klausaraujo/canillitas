@@ -5,18 +5,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <title><?=TITULO_PRINCIPAL?></title>
    <meta name="author" content="<?=AUTOR?>">
-   <link rel="shortcut icon" href="<?=base_url()?>public/images/favicon.jpg">
-   <link rel="icon" href="<?=base_url()?>public/images/favicon.jpg" type="image/x-icon">
+   <link rel="shortcut icon" href="<?=base_url()?>public/template/images/favicon.jpg">
+   <link rel="icon" href="<?=base_url()?>public/template/images/favicon.jpg" type="image/x-icon">
    <link rel="stylesheet" href="<?=base_url()?>public/template/css/bootstrap.min.css">
    <link rel="stylesheet" href="<?=base_url()?>public/template/css/typography.css">
    <link rel="stylesheet" href="<?=base_url()?>public/template/css/style.css">
    <link rel="stylesheet" href="<?=base_url()?>public/template/css/responsive.css">
    <link rel="stylesheet" href="<?=base_url()?>public/template/js/table/datatable/datatables.min.css" type="text/css">
-   <!--<link rel="stylesheet" href="<?=base_url()?>public/template/js/table/datatable/buttons.datatables.min.css" type="text/css">-->
-   <!--<link rel="stylesheet" href="<?=base_url()?>public/css/datatables.min.css" type="text/css"> 
-   <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-   <link href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
-   <link href="<?=base_url()?>public/css/datatables.min.css" rel="stylesheet" type="text/css">-->
    <style>                        
 		input[type=number]::-webkit-inner-spin-button, 
 		input[type=number]::-webkit-outer-spin-button { 
@@ -33,10 +28,14 @@
 		table.dataTable td {
 		  font-size: 0.8rem;
 		}
-		.actionEdit{background:green}
-		.actionCargas{}
-		.actionEstud{}
-		.actionReport{background:red}
+		.actionEdit{background:#52BE80;border-color:#52BE80}
+		.actionCargas{background:#2C3E50;border-color:#2C3E50}
+		.actionEstud{background:#3498DB;border-color:#3498DB}
+		.actionReport{background:red;border-color:red}
+		.mod:focus {background-color: #AAAAAA;-webkit-box-shadow: inset 0 0 20px black; -moz-box-shadow: inset 0 0 20px black; box-shadow: inset 0 0 20px black;}
+		.mod:hover{box-shadow: 0 0 0 3px rgba(0,0,0,0.5);}
+		.cont{width: 20px; height: auto;float: left; margin: 0px 1.8px}
+		.cont img{}
 	  </style>
 </head>
 <body>
@@ -54,13 +53,21 @@
                   <?php //echo "<pre>"; echo $lista; echo '<br>'.$pacientes;//echo "<pre>"; echo var_dump($lista); ?>
                </div>
             </div>
+			
+			<div id="ajaxForm" style="display:none"><?if(!$this->uri->segment(1)=="") echo $formNew;?></div>
             
-            
-            <div class="row">
+            <div class="row ajaxTable">
                <div class="col-xl-12 col-md-12">
                   <div class="card m-b-30 pb-35">
                      <div class="card-body">
-                        <h4 class="mt-0 m-b-15 header-title">Listado General de Canillitas Registrados</h4>
+                        <h4 class="mt-0 m-b-15 header-title">Listado General de Canillitas Registrados
+							<!--<div class="cont">
+								<a class="cont"><img src="<?=base_url()?>public/template/images/icons/txt_edit.png" title="Ejemplo" alt="Ejemplo" class="img-fluid"></a>
+								<a class="cont"><img src="<?=base_url()?>public/template/images/icons/family.png" title="Ejemplo" alt="Ejemplo" class="img-fluid"></a>
+								<a class="cont"><img src="<?=base_url()?>public/template/images/icons/pdf.png" title="Ejemplo" alt="Ejemplo" class="img-fluid"></a>
+								<a class="cont"><img src="<?=base_url()?>public/template/images/icons/graduacion.png" title="Ejemplo" alt="Ejemplo" class="img-fluid"></a>
+							<!--</div>-->
+						</h4>
                         <br>
                         <div class="table-responsive">
                            <table id="tablaCanillita" class="table table-striped dt-responsive w-100 table-bordered display nowrap table-hover mb-0" style="width:100%">
@@ -116,8 +123,10 @@
       const canTracking = "1";
       const canHistory = "1";
       const URI = "<?=base_url()?>";
+	  /*console.log(<?=$arch?>);
+	  console.log(<?=$crea?>);*/
 	  const lista = JSON.parse('<?=$listarCanillita?>');
-	  const table = tablePersonalized('#tablaCanillita',lista);
+	  const table = tablePersonalized('#tablaCanillita',lista, URI);
 	  //tablePersonalized(table);
 	  canillitas(URI,table,'canillita');
       /*const lista = <?= $lista ?>;*/

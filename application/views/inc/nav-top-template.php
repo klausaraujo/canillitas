@@ -30,11 +30,11 @@
                </li>
                             
                <li class="nav-item">
-                           <a class="search-toggle iq-waves-effect language-title" href="https://www.facebook.com/digerd.minsa/" target="_blank"><img src="<?=base_url()?>public/images/flag-01.png" alt="img-flaf" class="img-fluid mr-1" style="height: 30px; width: 30px;" />  </a>
+                           <a class="search-toggle iq-waves-effect language-title" href="https://www.facebook.com/digerd.minsa/" target="_blank"><img src="<?=base_url()?>public/template/images/flag-01.png" alt="img-flaf" class="img-fluid mr-1" style="height: 30px; width: 30px;" />  </a>
                          
                </li>
                <li class="nav-item">
-                           <a class="search-toggle iq-waves-effect language-title" href="https://twitter.com/digerd_minsa" target="_blank"><img src="<?=base_url()?>public/images/flag-02.png" alt="img-flaf" class="img-fluid mr-1" style="height: 30px; width: 30px;" />  </a>
+                           <a class="search-toggle iq-waves-effect language-title" href="https://twitter.com/digerd_minsa" target="_blank"><img src="<?=base_url()?>public/template/images/flag-02.png" alt="img-flaf" class="img-fluid mr-1" style="height: 30px; width: 30px;" />  </a>
                          
                </li>
 
@@ -46,7 +46,7 @@
                $imagen = $this->session->userdata("avatar"); ?>
             <li>
                <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                  <img src="<?=base_url()?>public/images/perfil/<?=$imagen?>" class="img-fluid rounded mr-3" alt="user">
+                  <img src="<?=base_url()?>public/template/images/perfil/<?=$imagen?>" class="img-fluid rounded mr-3" alt="user">
                   <div class="caption">
                      <h6 class="mb-0 line-height font-size-14"><?=$this->session->userdata("nombre")?> <?=$this->session->userdata("apellido")?></h6>
                      <span class="font-size-12">Disponible</span>

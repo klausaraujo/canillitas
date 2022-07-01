@@ -1,14 +1,14 @@
-function tablePersonalized(table, lista, titulo){
+function tablePersonalized(table, lista, url){
 	
 	let cols = []; let titles = []; let render = []; //let colu = ''; let tit = '';
 	
 	if(lista.length > 0){
-		let j = 1; let i = 0; //colu = '[{"data":null},'; tit = '[{"title":"Acciones","targets":0},';
-		cols.push({data:null});
+		let j = 2; let i = 0; //colu = '[{"data":null},'; tit = '[{"title":"Acciones","targets":0},';
+		cols.push({data:null}); cols.push({data:null});
 		lista.forEach(function(col){
 			for(const [key, value] of Object.entries(col)){
 				let pal = '';
-				if(j < 8 && i == 0){
+				if(j < 10 && i == 0){
 					//Crear columnas y titulos de datatables con un for y un String para JSON
 					/*colu += '{"data":"'+key+'"},';
 					tit += '{"title":"'+key.toUpperCase()+'","targets":'+j+'},';*/
@@ -45,18 +45,34 @@ function tablePersonalized(table, lista, titulo){
 	
 	render = [
 		{
+			title: '',
+			targets: 0,
+			data: null,
+			render: function (data, type, row, meta) {
+				return '';
+			}
+		},
+		{
 			title: 'Acciones',
-				targets: 0,
-				data: null,
-				render: function (data, type, row, meta) {
-				const btnEdit = '<button class="btn btn-success btn-sm actionEdit" title="Editar Registro" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
-				const btnCargas = '<button class="btn btn-warning btn-circle btn-sm actionCargas" title="Registrar Cargas Familiares" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-users" aria-hidden="true"></i></button>';
-				const btnEst = '<button class="btn btn-warning btn-circle btn-sm actionEstud" title="Registrar Estudios" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-graduation-cap" aria-hidden="true"></i></button>';
-				const btnPdf = '<button class="btn btn-warning btn-circle btn-sm actionReport" title="Ver Reporte" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>';
+			targets: 1,
+			data: null,
+			render: function (data, type, row, meta) {
+				/*const btnEdit = '<button class="btn btn-warning btn-sm actionEdit mod" title="Editar Registro" type="button"'+
+						'style="margin-right:5px;padding:1px;padding-left:4px""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
+				const btnCargas = '<button class="btn btn-warning btn-sm actionCargas mod" title="Registrar Cargas Familiares" type="button"'+
+						'style="margin-right:5px;padding:1px;padding-left:4px""><i class="fa fa-users" aria-hidden="true"></i></button>';
+				const btnEst = '<button class="btn btn-warning btn-sm actionEstud mod" title="Registrar Estudios" type="button"'+
+						'style="margin-right:5px;padding:1px;padding-left:4px""><i class="fa fa-graduation-cap" aria-hidden="true"></i></button>';
+				const btnPdf = '<button class="btn btn-warning btn-sm actionReport mod" title="Ver Reporte" type="button"'+
+						'style="margin-right:5px;padding:1px;padding-left:4px""><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>';*/
+				const btnEdit ='<a class="cont"><img src="'+url+'public/template/images/icons/txt_edit.png" title="Editar Registro" alt="editar"' +
+						'class="img-fluid"></a>';
+				const btnCargas = '<a class="cont"><img src="'+url+'public/template/images/icons/family.png" title="Cargas Familiares"' +
+						'alt="familia" class="img-fluid"></a>';
+				const btnEst = '<a class="cont"><img src="'+url+'public/template/images/icons/graduacion.png" title="Cargar Estudios" alt="estudios" ' +
+						'class="img-fluid"></a>';
+				const btnPdf = '<a class="cont"><img src="'+url+'public/template/images/icons/pdf.png" title="Exportar a PDF" alt="pdf"' +
+						'class="img-fluid"></a>';
 				return btnEdit+btnCargas+btnEst+btnPdf;
 				
 				}
@@ -96,35 +112,28 @@ function tablePersonalized(table, lista, titulo){
 		"bAutoWidth": true,
 		"bDestroy": true,		
 		//"responsive": true,
-		"select": true,
+		"select": false,
 		//"pageLength": "10",
 		//dom: 'Bfrt<"col-sm-12 inline"i> <"col-sm-12 inline"p>',
 		lengthMenu: [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, 'Todas']],
 		
 		"columns":cols,
-		"columnDefs":titles,/*[
-			{
-				targets: 0,
-				data: null,
-				render: function (data, type, row, meta) {
-				const btnEdit = '<button class="btn btn-success btn-sm actionEdit" title="Editar Registro" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
-				const btnCargas = '<button class="btn btn-warning btn-circle btn-sm actionCargas" title="Registrar Cargas Familiares" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-users" aria-hidden="true"></i></button>';
-				const btnEst = '<button class="btn btn-warning btn-circle btn-sm actionEstud" title="Registrar Estudios" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-graduation-cap" aria-hidden="true"></i></button>';
-				const btnPdf = '<button class="btn btn-warning btn-circle btn-sm actionReport" title="Ver Reporte" type="button"'+
-						'style="margin-right:5px;padding:1px;padding-left:3px""><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>';
-				return btnEdit+btnCargas+btnEst+btnPdf;
-				
-				}
-			}
-		
-		],*/
+		"columnDefs":titles,
 		"dom": '<"row"<"col-sm-12 mb-2"B><"col-sm-6 float-left"l><"col-sm-6 float-right"f>>rtip',
-		"buttons": [
-			'copy','csv','excel','pdf','print'
-		]
+		"buttons": {
+			dom: {
+			  container: {
+				tag: 'div',
+				className: 'flexcontent'
+			  },
+			  buttonLiner: {
+				tag: null
+			  }
+			},
+			buttons: [
+				'copy','csv','excel','pdf','print'
+			]
+		}
 		/*"buttons": {
 			dom: {
 			  container: {
@@ -191,6 +200,20 @@ function tablePersonalized(table, lista, titulo){
 			  className: 'selectTable'
 			}]
 		}*/
+	});
+	
+	$(table + ' tbody').on('click', '.cont', function(){
+		if($(this).children().attr('alt') === 'editar'){
+			if(dataTable.row(this).child.isShown()){
+				var data = dataTable.row(this).data();
+				//console.log(data);
+			}else{
+				var data = dataTable.row($(this).parents("tr")).data();
+			}
+			console.log(data);
+			$("#decisionModal").modal("show");
+			$(".modal-title").html('Editar Canillita');
+		}
 	});
 	
 	return dataTable;

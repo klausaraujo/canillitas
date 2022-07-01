@@ -209,7 +209,7 @@ CREATE TABLE ubigeo(
 	activo Char(1) DEFAULT '1',
 	PRIMARY KEY (idubigeo)) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci;
 	
-	INSERT INTO ubigeo(ubigeo,departamento,provincia,distrito,latitud,longitud,cod_dep,cod_pro,cod_dis) VALUES('010101','AMAZONAS','CHACHAPOYAS','CHACHAPOYAS','-6.2294','-77.8714','01','01','01');
+INSERT INTO ubigeo(ubigeo,departamento,provincia,distrito,latitud,longitud,cod_dep,cod_pro,cod_dis) VALUES('010101','AMAZONAS','CHACHAPOYAS','CHACHAPOYAS','-6.2294','-77.8714','01','01','01');
 INSERT INTO ubigeo(ubigeo,departamento,provincia,distrito,latitud,longitud,cod_dep,cod_pro,cod_dis) VALUES('010102','AMAZONAS','CHACHAPOYAS','ASUNCION','-6.0317','-77.7122','01','01','02');
 INSERT INTO ubigeo(ubigeo,departamento,provincia,distrito,latitud,longitud,cod_dep,cod_pro,cod_dis) VALUES('010103','AMAZONAS','CHACHAPOYAS','BALSAS','-6.8375','-78.0214','01','01','03');
 INSERT INTO ubigeo(ubigeo,departamento,provincia,distrito,latitud,longitud,cod_dep,cod_pro,cod_dis) VALUES('010104','AMAZONAS','CHACHAPOYAS','CHETO','-6.2558','-77.7003','01','01','04');

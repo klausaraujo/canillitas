@@ -17,6 +17,12 @@ class Main extends CI_Controller
 		
     }
 	
+	public function formAjax()
+    {
+		$form = $this->load->view('canillitas/form-new','',true);
+		echo $form;
+    }
+	
 	#Funcion para conectarse a la api de la RENIEC
 	public function curl()
     {

@@ -12,7 +12,7 @@
 									  <div class="form-group row mt-0">
 										 <div class="add-img-user profile-img-edit col-sm-2">
 										 <input type="hidden" name="foto_dni_str" id="foto_dni_str" value="">
-										 <img class="profile-pic img-fluid" id="blah" src="<?=base_url()?>public/images/camera.png" alt="profile-pic">
+										 <img class="profile-pic img-fluid" id="blah" src="<?=base_url()?>public/template/images/camera.png" alt="profile-pic">
 											<div class="p-image mt-0">
 											   <input class="file-upload" type="file" accept="image/*">
 											</div>
@@ -96,10 +96,15 @@
 											<input type="text" class="form-control col-sm-7" id="observacion" name="observacion" placeholder="Observaciones">
 									  </div>
 								</div>
+								<div class="col-sm-12 font-weight-bold"><h6 id="cargando" class="succes pt-2 pb-3" style="display:none"></h6></div>
+								<div class="col-sm-12 font-weight-bold"><h6 id="message" class="succes pt-2 pb-3" style="display:none"></h6></div>
+								<div class="col-sm-4 ml-auto mr-auto pb-3">
+									<button type="submit" class="btn btn-primary mx-3" id="btnEnviar">Guardar registro</button>
+									<button class="btn btn-primary" id="btnCancelar" name="btnCancelar" role="button" data-dismiss="modal" aria-pressed="true">Cancelar</button>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-12"><h5 id="cargando" class="succes"></h5></div>
-					<div class="col-sm-12"><h5 id="message" class="succes"></h5></div>
+					
 				</form>
 			</div>

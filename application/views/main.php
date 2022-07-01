@@ -5,8 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title><?=TITULO_PRINCIPAL?></title>
       <meta name="author" content="<?=AUTOR?>">
-      <link rel="shortcut icon" href="<?=base_url()?>public/images/favicon.jpg">
-      <link rel="icon" href="<?=base_url()?>public/images/favicon.jpg" type="image/x-icon">
+      <link rel="shortcut icon" href="<?=base_url()?>public/template/images/favicon.jpg">
+	  <link rel="icon" href="<?=base_url()?>public/template/images/favicon.jpg" type="image/x-icon">
       <link rel="stylesheet" href="<?=base_url()?>public/template/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?=base_url()?>public/template/css/typography.css">
       <link rel="stylesheet" href="<?=base_url()?>public/template/css/style.css">
@@ -70,7 +70,7 @@
               <div class="iq-card">
                 <div class="iq-card-body text-center" style="background: #089eae; height : 230px; border-radius:20px; padding-top: 15px;">
 					<div style="margin-top: 15px;" class="doc-profile">
-						<img class="img-fluid avatar-80" src="<?=base_url()?>public/images/principal/<?=$row->icono?>" alt="<?=$row->url?>">
+						<img class="img-fluid avatar-80" src="<?=base_url()?>public/template/images/principal/<?=$row->icono?>" alt="<?=$row->url?>">
 					</div>
 					<div class="dashboard__title">
   						<h6 style="color: white;"> <?=$row->descripcion?></h6>
