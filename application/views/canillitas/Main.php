@@ -54,7 +54,8 @@
                </div>
             </div>
 			
-			<div id="ajaxForm" style="display:none"><?if(!$this->uri->segment(1)=="") echo $formNew;?></div>
+			<!--<div id="ajaxForm" style="display:none"><?if(!$this->uri->segment(1)==""); echo $formNew;?></div>-->
+			<div id="ajaxForm" style="display:none"><?if(!$this->uri->segment(1)==""); $this->load->view("canillitas/form-new");?></div>
             
             <div class="row ajaxTable">
                <div class="col-xl-12 col-md-12">
@@ -83,6 +84,7 @@
          <?php $this->load->view("inc/footer-template"); ?>
       </div>
    </div>
+   
    <script src="<?=base_url()?>public/template/js/jquery.min.js"></script>
    <script src="<?=base_url()?>public/template/js/jquery-ui.min.js"></script>
    <!--<script src="<?=base_url()?>public/template/js/popper.min.js"></script>-->

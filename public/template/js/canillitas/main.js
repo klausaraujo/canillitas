@@ -16,7 +16,7 @@ function canillitas(URI,table,pag) {
 	}
 	
 	function resetForm(){
-		$("#formCanillita")[0].reset();$("#formCanillita select").prop('selectedIndex',0);$('#blah').attr('src',URI+'public/images/camera.png');
+		$("#formCanillita")[0].reset();$("#formCanillita select").prop('selectedIndex',0);$('#blah').attr('src',URI+'public/template/images/camera.png');
 	}
 	
 	$("#formCanillita").validate({
